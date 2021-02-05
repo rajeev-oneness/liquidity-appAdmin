@@ -8,5 +8,47 @@
 </ion-header>
 
 <ion-content>
-  
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Add Food Category</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <select name="shopId" #shopId [(ngModel)]="addUpdateData.shopId">
+              <option *ngFor="let shop of shopList;" value="{{shop.id}}">{{shop.liquorShopName}}</option>
+            </select>
+            <input type="hidden" [(ngModel)]="addUpdateData.categoryId">
+            <ion-item>
+              <ion-input type="text" placeholder="Category Name" [(ngModel)]="addUpdateData.categoryName"></ion-input>
+            </ion-item>
+            <ion-card-header>
+              <ion-button (click)="saveCategory()">Submit</ion-button>
+              <ion-button (click)="update()">Update Value</ion-button>
+            </ion-card-header>
+        </ion-card-content>
+      </ion-card>
+      <table style="width: 100%;" border="1">
+        <thead>
+          <tr>
+            <th>Category Id</th>
+            <th>Category Name</th>
+            <th>ShopName</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of category.items">
+            <td style="text-align: center;">{{category.id}}</td>
+            <td style="text-align: center;">{{category.category}}</td>
+            <td style="text-align: center;">{{category.shopName}}</td>
+            <td style="text-align: center;">
+              <ion-button size="small" color="danger" (click)="deleteCategory(category)"><ion-icon name="trash-bin-sharp"></ion-icon></ion-button>
+              <ion-button size="small" (click)="updateCategory(category)"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ion-row>
+  </ion-grid>
 </ion-content>

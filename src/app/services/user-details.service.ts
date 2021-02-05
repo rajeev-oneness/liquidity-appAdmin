@@ -317,7 +317,37 @@ getUserbyId(collection, user_id) {
         return this.afs.collection('/foodCategory', ref => ref.where('id', '==', categoryId)).valueChanges();
     }
 
-    getShopDetails(shopId){
-        return this.afs.collection('/liquorshops', ref => ref.where('id', '==', shopId)).valueChanges();
+    getShopDetails(shopId = 0){
+        if(shopId != 0){
+            return this.afs.collection('/liquorshops', ref => ref.where('id', '==', shopId)).valueChanges();
+        }else{
+            return this.afs.collection('/liquorshops').valueChanges();
+        }
+    }
+
+    getAllFoodCategory(){
+        return this.afs.collection('/foodCategory').valueChanges();
+    }
+
+    saveCategoryDetails(formData){
+        let id = new Date().getTime();
+        this.afs.doc(`/foodCategory/${id}`).set({
+            id : id,
+            category : formData.categoryName,
+            shopId : formData.shopId,
+        }, { merge: true });
+    }
+
+    updateCategoryDetails(formData){
+        return this.afs
+            .collection('/foodCategory')
+            .doc(formData.categoryId.toString())
+            .update({
+                category : formData.categoryName,
+            });
+    }
+
+    deleteCategoryDetails(categoryId){
+        return this.afs.collection('/foodCategory').doc(categoryId.toString()).delete();
     }
 }
