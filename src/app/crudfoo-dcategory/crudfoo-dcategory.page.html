@@ -15,6 +15,7 @@
           <ion-card-title>Add Food Category</ion-card-title>
         </ion-card-header>
         <ion-card-content>
+            <label>Select Shop</label>
             <select name="shopId" #shopId [(ngModel)]="addUpdateData.shopId">
               <option *ngFor="let shop of shopList;" value="{{shop.id}}">{{shop.liquorShopName}}</option>
             </select>

@@ -72,6 +72,8 @@ export class CRUDFooDCategoryPage implements OnInit {
       this.helper.showErrorCustom('Category name is Required')
     }else{
       this.userDetails.saveCategoryDetails(this.addUpdateData);
+      // deleting EveryThing
+      this.addUpdateData.categoryName = '';
     }
   }
 

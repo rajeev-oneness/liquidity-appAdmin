@@ -350,4 +350,24 @@ getUserbyId(collection, user_id) {
     deleteCategoryDetails(categoryId){
         return this.afs.collection('/foodCategory').doc(categoryId.toString()).delete();
     }
+
+    getAllFoodItems(){
+        return this.afs.collection('/foodItem').valueChanges();
+    }
+
+    saveFoodItemDetails(formData){
+        let id = new Date().getTime();
+        this.afs.doc(`/foodItem/${id}`).set({
+            id : id,
+            description : formData.description,
+            foodCategoryId : formData.categoryId,
+            item : formData.item,
+            price : formData.price,
+            veg : formData.veg,
+        }, { merge: true });
+    }
+
+    // getCategoryByShopId(shopId){
+    //     return this.afs.collection('/foodCategory', ref => ref.where('shopId', '==', shopId.toString())).valueChanges();
+    // }
 }

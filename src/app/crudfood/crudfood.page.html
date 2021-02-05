@@ -5,5 +5,68 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Add Food Items</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <label>Select Shop</label>
+          <select name="shopId" #shopId [(ngModel)]="addUpdateData.shopId" (change)="getCategoryList(shopId.value)">
+            <option *ngFor="let shop of shopList;" value="{{shop.id}}">{{shop.liquorShopName}}</option>
+          </select>
+        </ion-card-content>
+        <ion-card-content>
+          <label>Select Category</label>
+          <select name="categoryId" #shopId [(ngModel)]="addUpdateData.categoryId">
+            <option *ngFor="let category of categoryList;" value="{{category.id}}">{{category.category}}</option>
+          </select>
+          <input type="hidden" [(ngModel)]="addUpdateData.id">
+          <ion-item>
+            <ion-input type="text" placeholder="Item Name" [(ngModel)]="addUpdateData.item"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Desscription" [(ngModel)]="addUpdateData.description"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="number" placeholder="Price" [(ngModel)]="addUpdateData.price"></ion-input>
+          </ion-item>
+          <ion-item>
+            <input type="radio" name="itemType" [(ngModel)]="addUpdateData.veg" value="veg">veg
+            <input type="radio" name="itemType" [(ngModel)]="addUpdateData.veg" value="non-veg">Non-veg
+          </ion-item>
+            <ion-card-header>
+              <ion-button (click)="saveFoodData()">Submit</ion-button>
+              <ion-button (click)="updateBtn()">Update Value</ion-button>
+            </ion-card-header>
+        </ion-card-content>
+      </ion-card>
+      <table style="width: 100%;" border="1">
+        <thead>
+          <tr>
+            <th>Food Id</th>
+            <th>Food Item</th>
+            <th>Food Type</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let food of foodItemList">
+            <td>{{food.id}}</td>
+            <td>{{food.item}}</td>
+            <td>{{food.veg}}</td>
+            <td>{{food.categoryName}}</td>
+            <td>{{food.description}}</td>
+            <td>
+              <ion-button size="small" color="danger" (click)="deleteFoodItem(food)"><ion-icon name="trash-bin-sharp"></ion-icon></ion-button>
+              <ion-button size="small" (click)="updateFoodItem(food)"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ion-row>
+  </ion-grid>
 </ion-content>
