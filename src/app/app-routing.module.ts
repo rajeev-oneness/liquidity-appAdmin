@@ -53,11 +53,11 @@ const routes: Routes = [
     loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
   },
   {
-    path: 'crudfood',
+    path: 'food-items',
     loadChildren: () => import('./crudfood/crudfood.module').then( m => m.CRUDFoodPageModule)
   },
   {
-    path: 'crudfoo-dcategory',
+    path: 'food-category',
     loadChildren: () => import('./crudfoo-dcategory/crudfoo-dcategory.module').then( m => m.CRUDFooDCategoryPageModule)
   },
 ];

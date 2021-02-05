@@ -167,6 +167,13 @@ showExitConfirm() {
   openReportListPage(){
     this.navCtrl.navigateForward('/report-list');
   }
+
+  openFoodCategoryPage(){
+    this.navCtrl.navigateForward('/food-category');
+  }
+  openFoodItemsPage(){
+    this.navCtrl.navigateForward('/food-items');
+  }
   // async logout() {
   //     await this.auth.signOut();
   //     this.navCtrl.navigateRoot('/login');
