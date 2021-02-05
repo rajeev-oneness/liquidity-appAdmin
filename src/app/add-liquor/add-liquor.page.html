@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Liquor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col size="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Add Liquor</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-input type="text" placeholder="Liquor Name" [(ngModel)]="liquorName"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+              <ion-input type="text" placeholder="Liquor Location" [(ngModel)]="liquorLocation"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Liquor Name" [(ngModel)]="liquorName"></ion-input>
+            </ion-item> -->
+          </ion-card-content>
+          <ion-card-header>
+            <ion-button (click)="submitValues()">Submit</ion-button>
+            <ion-button (click)="UpdateValues()">Update Value</ion-button>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="7" offset="1">
+        <table>
+          <thead>
+            <tr>
+              <!-- <th>Liquor Shop Name</th>
+              <th>Liquor Location</th> -->
+              <th>Liquor Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of all_liquor_shops">
+              <!-- <td>{{item.liquorShopName}}</td>
+              <td>{{item.liquorLocation}}</td> -->
+              <td>{{item.liquorName}}</td>
+              <td><ion-button size="small" color="danger" (click)="deleteLevel(item.id)"><ion-icon name="trash-bin-sharp"></ion-icon></ion-button> <ion-button size="small" (click)="edit(item.liquorName,item.id)"><ion-icon name="pencil-sharp"></ion-icon></ion-button></td>
+            </tr>
+          </tbody>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

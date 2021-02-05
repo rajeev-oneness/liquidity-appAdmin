@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <label for="">Report Type</label>
+  <select #reportType ngModel name="reportType" (change)="reportTypeChange(reportType)">
+    <option value="food">Food</option>
+    <option value="liquor">Liquor</option>
+    <option value="vault">vault</option>
+  </select>
+
+  <table *ngIf="reportType.value == 'food'" style="width: 100%;" border="1">
+    <thead>
+        <tr>
+            <th>Booking Id</th>
+            <!-- <th>Shop Name</th> -->
+            <th>Booking For</th>
+            <th>Food Category</th>
+            <th>Food Item</th>
+            <th>Item Type</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <!-- <th>User Name</th> -->
+            <th>Booking Mobile</th>
+            <th>Booking Date and Time</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let foodData of foodItem.items">
+          <td>{{foodData.bookingId}}</td>
+          <!-- <td>{{foodData.shopName}}</td> -->
+          <td>{{foodData.bookingFor}}</td>
+          <td>{{foodData.foodCategoryName}}</td>
+          <td>{{foodData.foodItemName}}</td>
+          <td>{{foodData.foodItemType}}</td>
+          <td>{{foodData.price}}</td>
+          <td>{{foodData.quantity}}</td>
+          <!-- <td>{{foodData.userName}}</td> -->
+          <td>{{foodData.mobile}}</td>
+          <td>{{foodData.date}} | {{foodData.time}}</td>
+      </tr>
+    </tbody>
+  </table>  
+
+  <table *ngIf="reportType.value == 'liquor'">
+    <tr>
+      <th>Class</th>
+      <th>Section</th>
+      <th></th>
+    </tr>
+  </table>
+</ion-content>

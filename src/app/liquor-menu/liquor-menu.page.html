@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Liquor Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row>
+      <!-- <ion-col size="4"> -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Add Liquor Menu</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+<!--             <ion-item>
+              <ion-input type="text" placeholder="Liquor Shop Name" [(ngModel)]="liquorShopName"></ion-input>
+            </ion-item> -->
+            <!-- <ion-item>
+              <ion-input type="text" placeholder="Liquor Location" [(ngModel)]="liquorLocation"></ion-input>
+            </ion-item> -->
+<!--             <ion-item>
+              <ion-input type="text" placeholder="Liquor Name" [(ngModel)]="liquorName"></ion-input>
+            </ion-item> -->
+
+            <ion-label>Liquor Shop Owner Name</ion-label>
+                <ion-select [(ngModel)]="liquorShopOwner" multiple="false" (ionChange)="optionsliquorShopOwner();" cancelText="cancel" okText="ok">
+                  <ion-select-option *ngFor="let item of liquorShopOwnerList" [value]="item.liquorShopOwner">{{item.liquorShopOwner}}
+                  </ion-select-option>
+                </ion-select>
+
+            <ion-label>Liquor Shop Name</ion-label>
+                <ion-select [(ngModel)]="liquorShopId" multiple="false" (ionChange)="optionsliquorShopName();" cancelText="cancel" okText="ok">
+                  <ion-select-option *ngFor="let item of liquorShopNameList" [value]="item.liquorShopId">{{item.liquorShopName}}
+                  </ion-select-option>
+                </ion-select>
+
+            <ion-label>Liquor Category</ion-label>
+                <ion-select [(ngModel)]="liquorName" multiple="false" (ionChange)="optionsFn();" cancelText="cancel" okText="ok">
+                  <ion-select-option *ngFor="let item of all_liquor" [value]="item.liquorName">{{item.liquorName}}
+                  </ion-select-option>
+                </ion-select>
+
+<!--             <ion-label>Liquor Size</ion-label>
+                <ion-select [(ngModel)]="liquorSize" multiple="false" (ionChange)="optionsliquorSize();" cancelText="cancel" okText="ok">
+                  <ion-select-option *ngFor="let item of all_liquor_size" [value]="item.liquorSize">{{item.liquorSize}}
+                  </ion-select-option>
+                </ion-select> -->
+<!--             <ion-item>
+                <ion-input type="text" placeholder="Liquor Size" [(ngModel)]="liquorSize"></ion-input>
+              </ion-item> -->
+            <ion-item>
+                <ion-input type="text" placeholder="Liquor Name" [(ngModel)]="liquorCategory"></ion-input>
+              </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="30ml Minimum Price" [(ngModel)]="SmallLiquorMinPrice"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="30ml Maximum Price" [(ngModel)]="SmallLiquorMaxPrice"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="30ml Normal Price" [(ngModel)]="SmallLiquorNormalPrice"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="60ml Minimum Price" [(ngModel)]="BigLiquorMinPrice"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="60ml Maximum Price" [(ngModel)]="BigLiquorMaxPrice"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="60ml Normal Price" [(ngModel)]="BigLiquorNormalPrice"></ion-input>
+            </ion-item>
+
+          </ion-card-content>
+          <ion-card-header>
+            <ion-button (click)="submitValues()">Submit</ion-button>
+            <ion-button (click)="UpdateValues()">Update Value</ion-button>
+          </ion-card-header>
+        </ion-card>
+      <!-- </ion-col> -->
+      <!-- <ion-col size="7" offset="1"> -->
+        <table>
+          <thead>
+            <tr>
+              <th>Liquor Shop Owner</th>
+              <th>Liquor Shop Name</th>
+              <th>Liquor Category</th>
+              <th>Liquor Name</th>
+              <th>30_ml min price</th>
+              <th>30_ml max price</th>
+              <th>30_ml mormal price</th>
+              <th>60_ml min price</th>
+              <th>60_ml max price</th>
+              <th>60_ml mormal price</th>
+              <!-- <th>Liquor Name</th> -->
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of getLiquorListWithPrice">
+              <td>{{item.liquorShopOwner}}</td>
+              <td>{{item.liquorShopId}}</td>
+              <td>{{item.liquorCategory}}</td>
+              <td>{{item.liquorName}}</td>
+              <td>{{item.SmallLiquorMinPrice}}</td>
+              <td>{{item.SmallLiquorMaxPrice}}</td>
+              <td>{{item.SmallLiquorNormalPrice}}</td>
+              <td>{{item.BigLiquorMinPrice}}</td>
+              <td>{{item.BigLiquorMaxPrice}}</td>
+              <td>{{item.BigLiquorNormalPrice}}</td>
+              <td><ion-button size="small" color="danger" (click)="deleteLevel(item.id)"><ion-icon name="trash-bin-sharp"></ion-icon></ion-button> <ion-button size="small" (click)="edit(item.liquorShopOwner,item.liquorLocation,item.id,item.liquorName,item.liquorCategory,item.SmallLiquorMinPrice,item.SmallLiquorMaxPrice,item.SmallLiquorNormalPrice,item.BigLiquorMinPrice,item.BigLiquorMaxPrice,item.BigLiquorNormalPrice,item.liquorShopId)"><ion-icon name="pencil-sharp"></ion-icon></ion-button></td>
+            </tr>
+          </tbody>
+        </table>
+      <!-- </ion-col> -->
+    </ion-row>
+  </ion-grid>
+</ion-content>

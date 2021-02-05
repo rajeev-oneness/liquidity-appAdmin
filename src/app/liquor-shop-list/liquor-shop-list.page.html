@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Liquor Shops</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row>
+      <!-- <ion-col size="4"> -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Liquor Shops</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-input type="text" placeholder="Liquor Shop Name" [(ngModel)]="liquorShopName"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Liquor Shop Owner" [(ngModel)]="liquorShopOwner"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Liquor Shop Owner Mail" [(ngModel)]="liquorShopOwnerEmail"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Liquor Location" [(ngModel)]="liquorLocation"></ion-input>
+              </ion-item>
+            <ion-item>
+            <ion-input type="text" placeholder="Liquor Location Latitude" [(ngModel)]="liquorLocationLatitude"></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-input type="text" placeholder="Liquor LocationLongitude" [(ngModel)]="liquorLocationLongitude"></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-input type="text" placeholder="Phone" [(ngModel)]="phone"></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-input type="text" placeholder="Website" [(ngModel)]="website"></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-input type="text" placeholder="Facebook Link" [(ngModel)]="fb_link"></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-input type="text" placeholder="Twitter Link" [(ngModel)]="twitter_link"></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-input type="text" placeholder="Youtube Link" [(ngModel)]="youtube_link"></ion-input>
+            </ion-item>
+
+
+
+
+            <!-- </ion-item> -->
+<!--             <ion-item>
+              <ion-input type="text" placeholder="Liquor Name" [(ngModel)]="liquorName"></ion-input>
+            </ion-item> -->
+
+            <!-- <ion-label>Liquor Name</ion-label>
+                <ion-select [(ngModel)]="liquorName" multiple="true" (ionChange)="optionsFn();" cancelText="cancel" okText="ok">
+                  <ion-select-option *ngFor="let item of all_liquor" [value]="item.liquorName">{{item.liquorName}}
+                  </ion-select-option>
+                </ion-select> -->
+          </ion-card-content>
+          <ion-card-header>
+            <ion-button (click)="submitValues()">Submit</ion-button>
+            <ion-button (click)="UpdateValues()">Update Value</ion-button>
+          </ion-card-header>
+        </ion-card>
+      <!-- </ion-col> -->
+      <!-- <ion-col size="7" offset="1"> -->
+        <table>
+          <thead>
+            <tr>
+              <th>Liquor Shop Owner</th>
+              <th>Liquor Shop Name</th>
+              <th>Liquor Location</th>
+              <th>Liquor Shop Owner Mobile</th>
+              <th>Liquor Location Latitude</th>
+              <th>Liquor Location Longitude</th>
+              <th>Facebook</th>
+              <th>Twitter</th>
+              <th>Youtube</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of all_liquor_shops">
+              <td>{{item.liquorShopOwner}}</td>
+              <td>{{item.liquorShopName}}</td>
+              <td>{{item.liquorLocation}}</td>
+              <td>{{item.phone}}</td>
+              <td>{{item.liquorLocationLatitude}}</td>
+              <td>{{item.liquorLocationLongitude}}</td>
+              <td>{{item.fb_link}}</td>
+              <td>{{item.twitter_link}}</td>
+              <td>{{item.youtube_link}}</td>
+              <td><ion-button size="small" color="danger" (click)="deleteLevel(item.id)"><ion-icon name="trash-bin-sharp"></ion-icon></ion-button> <ion-button size="small" (click)="edit(item.liquorShopOwner,item.liquorShopName,item.liquorLocation,item.liquorName,item.id,item.liquorLocationLatitude,item.liquorLocationLongitude,item.liquorShopOwnerEmail,item.phone,item.website,item.fb_link,item.twitter_link,item.youtube_link)"><ion-icon name="pencil-sharp"></ion-icon></ion-button></td>
+            </tr>
+          </tbody>
+        </table>
+      <!-- </ion-col> -->
+    </ion-row>
+  </ion-grid>
+</ion-content>

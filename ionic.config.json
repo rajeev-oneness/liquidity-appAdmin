@@ -1,0 +1,7 @@
+{
+  "name": "LiqudityPWAAdmin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

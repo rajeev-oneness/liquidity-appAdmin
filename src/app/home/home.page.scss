@@ -1,0 +1,30 @@
+ion-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+}
+table {
+  width: 100%;
+  border: 1px solid #dee2e6;
+  font-size: 14px;
+
+  tr {
+    td {
+      padding: 12px;
+      border: 1px solid #dee2e6;
+    }
+    th {
+      padding: 12px;
+      border: 1px solid #dee2e6;
+      text-align: left;
+      background-color: #e9ecef;
+    }
+
+    &:nth-child(even) {
+      td {
+        background-color: rgba(0,0,0,.05);
+      }
+    }
+  }
+}
