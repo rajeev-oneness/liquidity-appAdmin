@@ -133,7 +133,7 @@ export class CRUDFoodPage implements OnInit {
   }
 
   addUpdateData = {
-    id : '',shopId : '',categoryId : '',description : '',item : '',price : '',veg : 'veg',
+    id:'',shopId:'',categoryId:'',description:'',item:'',price:'',veg:'veg',
   }
 
   saveFoodData(){
@@ -157,15 +157,20 @@ export class CRUDFoodPage implements OnInit {
   }
 
   updateBtn(){
-
+    this.userDetails.updateFoodItemDetails(this.addUpdateData);
   }
 
   updateFoodItem(foodData){
-
+    this.addUpdateData.id = foodData.id;
+    this.addUpdateData.categoryId = foodData.foodCategoryId;
+    this.addUpdateData.description = foodData.description;
+    this.addUpdateData.item = foodData.item;
+    this.addUpdateData.price = foodData.price;
+    this.addUpdateData.veg = foodData.veg;
   }
 
   deleteFoodItem(foodData){
-
+    this.userDetails.deleteFoodItemDetails(foodData.id);
   }
 
 }

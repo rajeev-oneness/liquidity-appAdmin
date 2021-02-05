@@ -367,6 +367,22 @@ getUserbyId(collection, user_id) {
         }, { merge: true });
     }
 
+    updateFoodItemDetails(formData){
+        return this.afs
+            .collection('/foodItem')
+            .doc(formData.id.toString())
+            .update({
+                description : formData.description,
+                price : formData.price,
+                veg : formData.veg,
+                item : formData.item,
+            });
+    }
+
+    deleteFoodItemDetails(foodItemId){
+        return this.afs.collection('/foodItem').doc(foodItemId.toString()).delete();
+    }
+
     // getCategoryByShopId(shopId){
     //     return this.afs.collection('/foodCategory', ref => ref.where('shopId', '==', shopId.toString())).valueChanges();
     // }
