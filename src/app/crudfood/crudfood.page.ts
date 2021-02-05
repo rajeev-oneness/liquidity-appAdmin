@@ -91,7 +91,6 @@ export class CRUDFoodPage implements OnInit {
   }
 
   pushDataIntoFoodItemModel(foodItemData){
-    let categoryName : any = this.getCategoryName(foodItemData.foodCategoryId);
     this.food.items.push({
       description : foodItemData.description,
       foodCategoryId : foodItemData.foodCategoryId,
@@ -99,15 +98,13 @@ export class CRUDFoodPage implements OnInit {
       item : foodItemData.item,
       price : foodItemData.price,
       veg : foodItemData.veg,
-      categoryName : categoryName,
+      categoryName : '',
     });
   }
 
   makeDataForFoodList(response){
     let data = [];
     response.forEach((foodItem) => {
-      let categoryName : any = this.getCategoryName(foodItem.foodCategoryId);
-      // console.log(categoryName);
       data.push({
         description : foodItem.description,
         foodCategoryId : foodItem.foodCategoryId,
@@ -115,22 +112,20 @@ export class CRUDFoodPage implements OnInit {
         item : foodItem.item,
         price : foodItem.price,
         veg : foodItem.veg,
-        categoryName : categoryName,
       });
     });
     this.foodItemList = data;
   }
 
-  getCategoryName(categoryId){
-    this.category.list.forEach((categoryData) => {
-      console.log('Incoming Catgepry => '+categoryId+' Matching Category'+categoryData.id);
-      if(categoryData.id == categoryId){
-        // console.log('yeah! its matching')
-        return categoryData.category;
-      }
-    })
-    return '';
-  }
+  // getCategoryName(categoryId){
+  //   this.category.list.forEach((categoryData) => {
+  //     if(categoryData.id == categoryId){
+  //       console.log(categoryData.category);
+  //       return ''+categoryData.category;
+  //     }
+  //   })
+  //   return '';
+  // }
 
   addUpdateData = {
     id:'',shopId:'',categoryId:'',description:'',item:'',price:'',veg:'veg',
