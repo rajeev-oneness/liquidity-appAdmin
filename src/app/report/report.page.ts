@@ -39,13 +39,6 @@ export class ReportPage implements OnInit {
       foodItem.forEach((response) => {
           let UserName : any = '';
           let ShopName : any = '';
-          // this.getShopNameByShopId(response.shopId);
-          // this.userDetails.getShopDetails(parseInt(response.shopId)).subscribe(
-          //   res => {
-          //     ShopName = this.getShopNameByDetails(res[0]);
-          //   },
-          // )
-
           this.foodItem.items.push({
               bookingId : response.id,
               bookingFor : response.bookingFor,
@@ -66,8 +59,6 @@ export class ReportPage implements OnInit {
               shopName : ShopName,
           });
       });
-
-      // console.log('FoodItems',this.foodItem.items);
   }
 
   getShopNameByDetails(shopDetails){

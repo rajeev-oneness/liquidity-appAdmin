@@ -52,6 +52,14 @@ const routes: Routes = [
     path: 'report-list',
     loadChildren: () => import('./report/report.module').then( m => m.ReportPageModule)
   },
+  {
+    path: 'crudfood',
+    loadChildren: () => import('./crudfood/crudfood.module').then( m => m.CRUDFoodPageModule)
+  },
+  {
+    path: 'crudfoo-dcategory',
+    loadChildren: () => import('./crudfoo-dcategory/crudfoo-dcategory.module').then( m => m.CRUDFooDCategoryPageModule)
+  },
 ];
 
 @NgModule({
